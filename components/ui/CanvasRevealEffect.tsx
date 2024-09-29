@@ -202,16 +202,18 @@ const ShaderMaterial = ({
       return;
     }
     lastFrameTime = timestamp;
-
+    "@ts-ignore"
     const material: any = ref.current.material;
     const timeLocation = material.uniforms.u_time;
     timeLocation.value = timestamp;
   });
 
   const getUniforms = () => {
+     "@ts-ignore"
     const preparedUniforms: any = {};
 
     for (const uniformName in uniforms) {
+       "@ts-ignore"
       const uniform: any = uniforms[uniformName];
 
       switch (uniform.type) {
@@ -282,6 +284,7 @@ const ShaderMaterial = ({
   }, [size.width, size.height, source]);
 
   return (
+     
     <mesh ref={ref as any}>
       <planeGeometry args={[2, 2]} />
       <primitive object={material} attach="material" />

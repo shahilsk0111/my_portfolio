@@ -7,7 +7,7 @@ import { PinContainer } from "./ui/PinContainer";
 
 
 const RecentProjects = () => {
-
+"@ts-ignore"
   const handleClick = (link:any) => {
     window.open(link, "_blank"); 
   };

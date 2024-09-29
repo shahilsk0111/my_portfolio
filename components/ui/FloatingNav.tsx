@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -28,7 +28,7 @@ export const FloatingNav = ({
   useMotionValueEvent(scrollYProgress, "change", (current) => {
    
     if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
+      const direction = current! - scrollYProgress.getPrevious()!;
 
       if (scrollYProgress.get() < 0.05) {
         
@@ -69,7 +69,8 @@ export const FloatingNav = ({
           border: "1px solid rgba(255, 255, 255, 0.125)",
         }}
       >
-        {navItems.map((navItem: any, idx: number) => (
+         "@ts-ignore"
+        {navItems.map((navItem: any , idx: number) => (
           <Link
             key={`link=${idx}`}
             href={navItem.link}
@@ -78,8 +79,7 @@ export const FloatingNav = ({
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
-            {/* add !cursor-pointer */}
-            {/* remove hidden sm:block for the mobile responsive */}
+            
             <span className=" text-sm !cursor-pointer">{navItem.name}</span>
           </Link>
         ))}
