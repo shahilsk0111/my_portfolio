@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactElement, useState } from "react";
+import React, {  useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -69,8 +69,8 @@ export const FloatingNav = ({
           border: "1px solid rgba(255, 255, 255, 0.125)",
         }}
       >
-         "@ts-ignore"
-        {navItems.map((navItem: any , idx: number) => (
+         
+        {navItems.map((navItem: any , idx: number) => (   // eslint-disable-line @typescript-eslint/no-explicit-any
           <Link
             key={`link=${idx}`}
             href={navItem.link}

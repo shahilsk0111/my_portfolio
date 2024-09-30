@@ -7,8 +7,8 @@ import { PinContainer } from "./ui/PinContainer";
 
 
 const RecentProjects = () => {
-"@ts-ignore"
-  const handleClick = (link:any) => {
+
+  const handleClick = (link:any) => {  // eslint-disable-line @typescript-eslint/no-explicit-any
     window.open(link, "_blank"); 
   };
   return (

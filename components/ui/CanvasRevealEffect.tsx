@@ -202,19 +202,19 @@ const ShaderMaterial = ({
       return;
     }
     lastFrameTime = timestamp;
-    "@ts-ignore"
-    const material: any = ref.current.material;
+    
+    const material: any = ref.current.material;  // eslint-disable-line @typescript-eslint/no-explicit-any
     const timeLocation = material.uniforms.u_time;
     timeLocation.value = timestamp;
   });
 
   const getUniforms = () => {
-     "@ts-ignore"
-    const preparedUniforms: any = {};
+      
+    const preparedUniforms: any = {};  // eslint-disable-line @typescript-eslint/no-explicit-any
 
     for (const uniformName in uniforms) {
-       "@ts-ignore"
-      const uniform: any = uniforms[uniformName];
+        
+      const uniform: any = uniforms[uniformName];  // eslint-disable-line @typescript-eslint/no-explicit-any
 
       switch (uniform.type) {
         case "uniform1f":
@@ -284,8 +284,8 @@ const ShaderMaterial = ({
   }, [size.width, size.height, source]);
 
   return (
-     
-    <mesh ref={ref as any}>
+      
+    <mesh ref={ref as any}>  {/* eslint-disable-line @typescript-eslint/no-explicit-any */}
       <planeGeometry args={[2, 2]} />
       <primitive object={material} attach="material" />
     </mesh>
